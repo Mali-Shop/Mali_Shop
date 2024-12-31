@@ -15,4 +15,13 @@ class AppWidget {
     return TextStyle(
         fontSize: 16.0, fontWeight: FontWeight.w300, color: Colors.black);
   }
+
+  static TextStyle pay() {
+    return TextStyle(
+      color: Colors.white,
+      fontSize: 14.0,
+      fontWeight: FontWeight.bold,
+
+    );
+  }
 }
