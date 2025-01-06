@@ -1,6 +1,7 @@
 import 'dart:ffi';
-
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:mali_shop/Pages/Payment_service.dart';
 import 'package:mali_shop/support_widget/widget_support.dart';
 
 class Cart extends StatefulWidget {
@@ -143,14 +144,11 @@ class _CartState extends State<Cart> {
                         decoration: BoxDecoration(
                           color: Colors.grey[300],
                           borderRadius: BorderRadius.circular(35.0),
-                        ), 
+                        ),
                         margin: EdgeInsets.all(10.0),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          
-                          
                           children: [
-                            
                             Padding(
                               padding: const EdgeInsets.all(10.0),
                               child: Text(
@@ -163,35 +161,31 @@ class _CartState extends State<Cart> {
                               child: Text(
                                 '\$ ${totalprice.toStringAsFixed(1)}',
                                 style: AppWidget.BigBold(),
-                                                    
                               ),
                             )
                           ],
                         ),
                       ),
-
-
                       Container(
                         margin: EdgeInsets.only(bottom: 50.0),
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.black,
-                            
-                            
-
                           ),
                           child: Text(
                             "Place Order",
                             style: AppWidget.pay(),
-                            ),
+                          ),
                           onPressed: () {
-                            
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const Payment_Service()));
                           },
-                        )
-                      ),
+                        ),
+                      )
                     ],
                   ),
-                  
                 ],
               ));
   }
@@ -225,3 +219,4 @@ class CartItem {
       required this.price,
       required this.quantity});
 }
+
