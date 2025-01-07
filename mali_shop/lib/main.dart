@@ -3,8 +3,9 @@ import 'dart:ffi';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mali_shop/Pages/Cart.dart';
+
 import 'package:mali_shop/Pages/Loading.dart';
+import 'package:mali_shop/Pages/My_Cart.dart';
 import 'package:mali_shop/Pages/Payment_service.dart';
 import 'package:mali_shop/Pages/payment.dart';
 import 'package:provider/provider.dart';
@@ -39,19 +40,20 @@ class Oliver extends ChangeNotifier {
   }
 }
 
-final GoRouter router = GoRouter(initialLocation: '/pay', routes: <RouteBase>[
+final GoRouter router = GoRouter(initialLocation: '/my_cart', routes: <RouteBase>[
   GoRoute(
     path: '/payment',
     builder: (context, state) {
       return const Payment();
     },
   ),
-  GoRoute(
-      name: '/cart',
-      path: '/cart',
-      builder: (context, state) {
-        return const Cart();
-      }),
+   GoRoute(
+    path: '/my_cart',
+    builder: (context, state) {
+      return const My_Cart();
+    },
+  ),
+  
   GoRoute(
       name: '/pay',
       path: '/pay',

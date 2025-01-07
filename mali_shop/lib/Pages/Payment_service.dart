@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mali_shop/Pages/Cart.dart';
 import 'package:mali_shop/main.dart';
 import 'package:mali_shop/support_widget/widget_support.dart';
 import 'package:go_router/go_router.dart ';
@@ -13,13 +12,24 @@ class Payment_Service extends StatefulWidget {
 }
 
 class _Payment_ServiceState extends State<Payment_Service> {
-  
   @override
   Widget build(BuildContext context) {
+    final _number = TextEditingController();
+    final promo = TextEditingController();
     final textstate = Provider.of<Oliver>(context);
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back_ios,
+            size: 14.0,
+           ),
+          onPressed: () {
+            context.go('/my_cart');
+            // Navigate back to cart page
+          },
+        ),
         title: Text(
           'Payment Service',
           style: AppWidget.SmallBold(),
@@ -34,14 +44,12 @@ class _Payment_ServiceState extends State<Payment_Service> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Text(
-                  'Payment',
+                  'Payment Method ',
                   style: AppWidget.SmallBold(),
                 ),
                 // Text
                 Text(
                   textstate.text,
-                  
-
                 ),
                 IconButton(
                   icon: Icon(
@@ -55,37 +63,57 @@ class _Payment_ServiceState extends State<Payment_Service> {
                 )
               ],
             ),
-            Row(
-              children: [
-                Text(
-                  "Enter Your Number: ",
-                  style: AppWidget.SmallBold(),
-                ),
-                
-                
-              ],
-            ),
+            SizedBox(height: 5.0),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Text(
-                  'Promo            ',
+                  "Phone  ",
                   style: AppWidget.SmallBold(),
                 ),
-                Text(
-                  'Promo code   ',
-                  style: TextStyle(fontSize: 14.0),
-                ),
-                SizedBox(
-                  width: 5.0,
-                ),
-                IconButton(
-                    icon: Icon(
-                      Icons.arrow_forward_ios,
-                      size: 14.0,
+                Container(
+                  height: 50,
+                  width: 250,
+                  child: TextField(
+                    controller: _number,
+                    decoration: InputDecoration(
+                      hoverColor: Colors.grey,
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                      labelText: "+237",
+                      hintText: "Enter Number",
                     ),
-                    onPressed: () {})
+                  ),
+                )
               ],
+            ),
+            SizedBox(height: 7.0),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Text(
+                  'Promo   ',
+                  style: AppWidget.SmallBold(),
+                ),
+                Container(
+                  height: 50,
+                  width: 250,
+                  child: TextField(
+                    controller: promo,
+                    
+                    decoration: InputDecoration(
+                      hoverColor: Colors.grey,
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10)),
+                          
+                      hintText: "Promo Code",
+                    ),
+                  ),
+                )
+              ],
+            ),
+            SizedBox(
+              height: 10.0,
             ),
             Column(
               children: [

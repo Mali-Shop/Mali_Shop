@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:mali_shop/Pages/My_Cart.dart';
 import 'package:mali_shop/support_widget/widget_support.dart';
 import 'package:go_router/go_router.dart';
-import 'package:mali_shop/Pages/Cart.dart';
+
 
 class Loading extends StatefulWidget {
   const Loading({super.key});
@@ -20,7 +21,7 @@ class _LoadingState extends State<Loading> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => Cart(),
+              builder: (context) => My_Cart(),
             ),
           );
         },
