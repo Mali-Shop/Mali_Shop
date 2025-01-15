@@ -24,4 +24,12 @@ class AppWidget {
 
     );
   }
+  static TextStyle Category() {
+    return TextStyle(
+      color: Colors.blue,
+      fontSize: 15.0,
+      fontWeight: FontWeight.bold,
+
+    );
+  }
 }

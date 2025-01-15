@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mali_shop/Pages/My_Cart.dart';
-import 'package:mali_shop/support_widget/widget_support.dart';
-import 'package:go_router/go_router.dart';
+
 
 
 class Loading extends StatefulWidget {

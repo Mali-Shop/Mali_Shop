@@ -1,0 +1,35 @@
+{
+    "headphone":[
+        {
+            "id":1,
+            "name":"PocBuds Bluetooth Headphones Wireless Earbuds 80hrs",
+            "price": 25.99,
+            "img":"assets/head1.png"
+        },
+        {
+            "id":2,
+            "name":"Wireless Earbuds 75hrs Bluetooth 5.3 Headphone Sport",
+            "price": 35.99,
+            "img":"assets/head2.png"
+        },
+        {
+            "id":3,
+            "name":"2 Packs USB C Headphones for iPhone 16/15 Earbuds with Microphone ",
+            "price": 12.98,
+            "img":"assets/head6.png"
+            
+        },
+        {
+            "id":4,
+            "name":"bmani Wireless Earbuds Bluetooth Headphones 48hrs Play Back Sport Earphones",
+            "price": 37.99,
+            "img":"assets/head4.png"
+        },
+        {
+            "id":5,
+            "name":"LUDOS Ultra Wired Earbuds in-Ear Headphones, 5 Years Warranty, Earphones with Mic",
+            "price": 18.97,
+            "img":"assets/head5.png"
+        }
+    ]
+}
