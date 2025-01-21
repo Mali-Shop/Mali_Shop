@@ -24,9 +24,13 @@ class MyApp extends StatelessWidget {
     
     
 
-    return ChangeNotifierProvider(
+    return MultiProvider(
       
-      create: (context) => CartModel(),
+      providers: [
+        ChangeNotifierProvider(create: (context) => Oliver()),
+        ChangeNotifierProvider(create: (_) => CartModel()),
+
+      ],
       child: MaterialApp.router(
         title: 'Mali Shop',
         debugShowCheckedModeBanner: false,
@@ -70,12 +74,7 @@ final GoRouter router = GoRouter(initialLocation: '/category', routes: <RouteBas
     },
   ),
   
-  GoRoute(
-      name: '/pay',
-      path: '/pay',
-      builder: (context, state) {
-        return const Payment_Service();
-      }),
+  
   GoRoute(
       name: '/load',
       path: '/load',
@@ -111,6 +110,10 @@ class CartModel extends ChangeNotifier {
   void updateQuantity(String productName, int quantity) {
     final item = _items.firstWhere((cartItem) => cartItem.product['Name'] == productName);
     item.quantity = quantity;
+    notifyListeners();
+  }
+  void removeFromCart(String productName) {
+    _items.removeWhere((cartItem) => cartItem.product['Name'] == productName);
     notifyListeners();
   }
 

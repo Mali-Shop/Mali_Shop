@@ -82,7 +82,7 @@ class Product_detail extends StatelessWidget {
               child: Image.asset(
                 product['image'],
                 fit: BoxFit.contain,
-                height: 500.0,
+                height: 450.0,
               ),
             ),
             SizedBox(

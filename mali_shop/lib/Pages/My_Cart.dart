@@ -16,8 +16,7 @@ class _My_CartState extends State<My_Cart> {
   @override
   Widget build(BuildContext context) {
     final cartmodel = Provider.of<CartModel>(context);
-    
-    
+
     return Scaffold(
         appBar: AppBar(
           title: Text("My Cart"),
@@ -101,20 +100,26 @@ class _My_CartState extends State<My_Cart> {
                                                             cartItem.quantity -
                                                                 1);
                                                       } else {
-                                                        cartmodel.items
-                                                            .removeAt(index);
+                                                        //remove item
+                                                        cartmodel.removeFromCart(
+                                                            cartItem.product[
+                                                                'Name']);
                                                       }
                                                     },
                                                     icon: Icon(Icons.remove),
                                                   ),
                                                 ),
                                                 Text(
-                                                 ' ${cartItem.quantity}',
+                                                  ' ${cartItem.quantity}',
                                                 ),
                                                 Container(
                                                   child: IconButton(
                                                     onPressed: () {
-                                                      cartmodel.updateQuantity(cartItem.product['Name'], cartItem.quantity+1);
+                                                      cartmodel.updateQuantity(
+                                                          cartItem
+                                                              .product['Name'],
+                                                          cartItem.quantity +
+                                                              1);
                                                     },
                                                     icon: Icon(Icons.add),
                                                   ),
@@ -165,7 +170,12 @@ class _My_CartState extends State<My_Cart> {
                               backgroundColor: Colors.black,
                             ),
                             onPressed: () {
-                              context.go('/pay');
+                              Navigator.push(context,
+                              MaterialPageRoute(
+                                builder: (context)=>Payment_Service(cartitem: cartmodel.items)
+                              )
+                               
+                              );
                             },
                             child: Text(
                               "Checkout",

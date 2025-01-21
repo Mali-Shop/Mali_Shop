@@ -5,20 +5,17 @@ import 'package:mali_shop/support_widget/widget_support.dart';
 import 'package:go_router/go_router.dart ';
 import 'package:provider/provider.dart';
 
-class Payment_Service extends StatefulWidget {
-  
-  const Payment_Service({super.key});
+class Payment_Service extends StatelessWidget {
+  final List<CartItem> cartitem;
 
-  @override
-  State<Payment_Service> createState() => _Payment_ServiceState();
-}
+  const Payment_Service({super.key, required this.cartitem});
 
-class _Payment_ServiceState extends State<Payment_Service> {
   @override
   Widget build(BuildContext context) {
     final _number = TextEditingController();
     final promo = TextEditingController();
     final textstate = Provider.of<Oliver>(context);
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -137,7 +134,26 @@ class _Payment_ServiceState extends State<Payment_Service> {
               ],
             ),
             SizedBox(
-              height: 50.0,
+              height: 20.0,
+            ),
+            Container(
+              child: Expanded(
+                child: ListView.builder(
+                    itemCount: cartitem.length,
+                    itemBuilder: (context, index) {
+                      Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Row(
+                          children: [
+                            
+                          ],
+                        ),
+                      );
+                    }),
+              ),
+            ),
+            SizedBox(
+              height: 30.0,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
