@@ -90,7 +90,8 @@ class _Category_PageState extends State<Category_Page> {
         actions: [
           IconButton(
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => My_Cart()));
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => My_Cart()));
             },
             icon: Icon(Icons.shopping_bag_outlined),
           )
@@ -165,7 +166,10 @@ class _Category_PageState extends State<Category_Page> {
                                           name: item['Name'],
                                           price: item['Price'],
                                           image: item['image'],
-                                          rating: item['rating']),
+                                          rating: item['rating'],
+                                          
+                                          ),
+                                        
                                     ),
                                   ))
                               .toList()),
@@ -182,12 +186,25 @@ class _Category_PageState extends State<Category_Page> {
 }
 
 class _ProductItem extends StatelessWidget {
+   Widget _buildRatingStars(double rating) {
+    List<Widget> stars = [];
+    for (int i = 0; i < 5; i++) {
+      if (i < rating.round()) {
+        stars.add(const Icon(Icons.star, color: Colors.amber));
+      } else {
+        stars.add(const Icon(Icons.star_border, color: Colors.amber));
+      }
+    }
+    return Row(children: stars);
+  }
+  
   final String name;
   final double price;
   final String image;
   final double rating;
   const _ProductItem(
       {Key? key,
+      
       required this.name,
       required this.price,
       required this.image,
@@ -243,10 +260,7 @@ class _ProductItem extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        Icon(
-                          Icons.star,
-                          color: Colors.white,
-                        ),
+                        _buildRatingStars(rating),
                         SizedBox(
                           width: 5.0,
                         ),
@@ -256,24 +270,7 @@ class _ProductItem extends StatelessWidget {
                         )
                       ],
                     ),
-                    GestureDetector(
-                      onTap: () {
-                        
-                      },
-                      child: Container(
-                        width: 100.0,
-                        decoration: BoxDecoration(
-                          color: Colors.yellow,
-                          borderRadius: BorderRadius.circular(5.0),
-                        ),
-                        child: Center(
-                          child: Text(
-                            "Add to Cart",
-                            style: AppWidget.SmallBold(),
-                          ),
-                        ),
-                      ),
-                    )
+                    
                   ],
                 )
               ])
